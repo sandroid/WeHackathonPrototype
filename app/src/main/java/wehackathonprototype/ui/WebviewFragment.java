@@ -17,16 +17,15 @@ import android.webkit.WebViewClient;
  */
 public class WebviewFragment extends Fragment {
 
-    public static final String TITLE = "title";
-    public static final String URL = "url";
     private WebView mWebView;
 
-    public static WebviewFragment newInstance(String title, String url) {
+    private final static String URL = "url";
+
+    public static WebviewFragment newInstance(String url) {
         WebviewFragment fragment = new WebviewFragment();
-        Bundle bundle = new Bundle();
-        bundle.putString(TITLE, title);
-        bundle.putString(URL, url);
-        fragment.setArguments(bundle);
+        Bundle extras = new Bundle();
+        extras.putString(URL, url);
+        fragment.setArguments(extras);
         return fragment;
     }
 
@@ -41,14 +40,14 @@ public class WebviewFragment extends Fragment {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_webview, container, false);
 
-        getActivity().setTitle(getArguments().getString(TITLE));
+        String url = getArguments().getString(URL);
 
         mWebView = (WebView) view.findViewById(R.id.webview);
         mWebView.setInitialScale(1);
         mWebView.getSettings().setLoadWithOverviewMode(true);
         mWebView.getSettings().setUseWideViewPort(true);
         mWebView.getSettings().setJavaScriptEnabled(true);
-        mWebView.loadUrl(getArguments().getString(URL));
+        mWebView.loadUrl(url);
 
         // Enable Javascript
         WebSettings webSettings = mWebView.getSettings();

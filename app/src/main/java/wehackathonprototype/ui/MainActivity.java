@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity
 
     public static final String ZIP_CODE = "97007";
     private static final String VIDEO = "https://www.youtube.com/watch?v=Y_iCIISngdI";
-    private static final String HACKATHON_URL = "https://wecode-nov2016s.splashthat.com/#settings";
+    private static final String HACKATHON_URL = "https://wecodeforgood2017.splashthat.com/";
     public static final String SW_2ND_AVE_PORTLAND_OR = "308 SW 2nd Ave., Portland, OR";
 
 
@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_map) {
             fragment = MyMapFragment.newInstance(SW_2ND_AVE_PORTLAND_OR);
         } else if (id == R.id.nav_information) {
-            fragment = WebviewFragment.newInstance(getResources().getString(R.string.webview_title), HACKATHON_URL);
+            fragment = WebviewFragment.newInstance(HACKATHON_URL);
         } else if (id == R.id.nav_weather) {
             fragment = WeatherFragment.newInstance(ZIP_CODE);
         } else if (id == R.id.nav_video) {
