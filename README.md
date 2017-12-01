@@ -30,7 +30,7 @@ git clone https://github.com/sandroid/WeHackathonPrototype.git
 * Run project to compile and install app on device
 * Launch app
 
-![screen](https://user-images.githubusercontent.com/11093935/33234734-7bb265d0-d1e0-11e7-8996-13b64bd83349.png)
+![wehackathon](https://user-images.githubusercontent.com/11093935/33496557-85149bae-d67f-11e7-94d7-145dfaef6e7c.png)
 
 
 
