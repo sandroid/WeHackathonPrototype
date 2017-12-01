@@ -17,10 +17,16 @@ import android.webkit.WebViewClient;
  */
 public class WebviewFragment extends Fragment {
 
+    public static final String TITLE = "title";
+    public static final String URL = "url";
     private WebView mWebView;
 
-    public static WebviewFragment newInstance() {
+    public static WebviewFragment newInstance(String title, String url) {
         WebviewFragment fragment = new WebviewFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString(TITLE, title);
+        bundle.putString(URL, url);
+        fragment.setArguments(bundle);
         return fragment;
     }
 
@@ -35,12 +41,14 @@ public class WebviewFragment extends Fragment {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_webview, container, false);
 
+        getActivity().setTitle(getArguments().getString(TITLE));
+
         mWebView = (WebView) view.findViewById(R.id.webview);
         mWebView.setInitialScale(1);
         mWebView.getSettings().setLoadWithOverviewMode(true);
         mWebView.getSettings().setUseWideViewPort(true);
         mWebView.getSettings().setJavaScriptEnabled(true);
-        mWebView.loadUrl("https://wecode-nov2016s.splashthat.com/#settings");
+        mWebView.loadUrl(getArguments().getString(URL));
 
         // Enable Javascript
         WebSettings webSettings = mWebView.getSettings();

@@ -33,16 +33,20 @@ import java.util.List;
  */
 public class MyMapFragment extends Fragment implements OnMapReadyCallback {
 
-    public static final String SW_2ND_AVE_PORTLAND_OR = "308 SW 2nd Ave., Portland, OR";
+    public static final String ADDRESS = "address";
     private GoogleMap mMap;
+    private String mAddress;
 
 
     public MyMapFragment() {
         // Required empty public constructor
     }
 
-    public static MyMapFragment newInstance() {
+    public static MyMapFragment newInstance(String address) {
         MyMapFragment fragment = new MyMapFragment();
+        Bundle extras = new Bundle();
+        extras.putString(ADDRESS, address);
+        fragment.setArguments(extras);
         return fragment;
     }
 
@@ -57,6 +61,7 @@ public class MyMapFragment extends Fragment implements OnMapReadyCallback {
             Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_mymap, container, false);
+        mAddress = getArguments().getString(ADDRESS);
         FragmentManager fragmentManager = getChildFragmentManager();
         SupportMapFragment supportMapFragment = (SupportMapFragment) fragmentManager
                 .findFragmentById(R.id.map);
@@ -85,7 +90,7 @@ public class MyMapFragment extends Fragment implements OnMapReadyCallback {
         try {
             List<Address> geoResults = geocoder.getFromLocationName("<address goes here>", 1);
             while (geoResults.size()==0) {
-                geoResults = geocoder.getFromLocationName(SW_2ND_AVE_PORTLAND_OR, 1);
+                geoResults = geocoder.getFromLocationName(mAddress, 1);
             }
             if (geoResults.size()>0) {
                 Address addr = geoResults.get(0);
