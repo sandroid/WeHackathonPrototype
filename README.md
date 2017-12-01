@@ -7,6 +7,7 @@ Working code:
 * Map using Google Apis
 * Information that links to webpage using WebView
 * Weather using Weather API Rest Client 
+* Play video
 
 Place holders that can be used or deleted:
 * Share
