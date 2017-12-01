@@ -1,6 +1,6 @@
 # We Hackathon Starter Kit
 
-The prototype is a working Android app.  The app provides features that can be used as basic building blocks to build your own unique Android app.  The features available are:
+The start kit is a working Android app.  The app provides features that can be used as basic building blocks to build your own unique Android app.  The features available are:
 
 Working code:
 * Registration Form
