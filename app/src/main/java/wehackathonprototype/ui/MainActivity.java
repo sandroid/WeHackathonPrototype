@@ -3,6 +3,8 @@ package wehackathonprototype.ui;
 
 import com.wehackathonprototype.R;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -24,6 +26,11 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     public static final String ZIP_CODE = "97007";
+    private static final String VIDEO = "https://www.youtube.com/watch?v=Y_iCIISngdI";
+    private static final String HACKATHON_URL = "https://wecode-nov2016s.splashthat.com/#settings";
+    public static final String SW_2ND_AVE_PORTLAND_OR = "308 SW 2nd Ave., Portland, OR";
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,16 +103,17 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_register) {
             fragment = RegistrationFragment.newInstance();
         } else if (id == R.id.nav_map) {
-            fragment = MyMapFragment.newInstance();
+            fragment = MyMapFragment.newInstance(SW_2ND_AVE_PORTLAND_OR);
         } else if (id == R.id.nav_information) {
-            fragment = WebviewFragment.newInstance();
-
+            fragment = WebviewFragment.newInstance(getResources().getString(R.string.webview_title), HACKATHON_URL);
         } else if (id == R.id.nav_weather) {
             fragment = WeatherFragment.newInstance(ZIP_CODE);
+        } else if (id == R.id.nav_video) {
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(VIDEO)));
         } else if (id == R.id.nav_share) {
-
+            //TODO:  Add your own code here
         } else if (id == R.id.nav_send) {
-
+            //TODO:  Add your own code here
         }
 
         if (fragment != null) {
