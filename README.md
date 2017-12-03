@@ -35,3 +35,11 @@ git clone https://github.com/sandroid/WeHackathonPrototype.git
 
 
 
+##Troubleshooting
+If you are using Mac OSX and get an error with text like "Intel HAXM is required to run this AVD. /dev/kvm is not found"
+Do the following to fix:
+https://stackoverflow.com/questions/46565353/dev-kvm-is-not-found-on-mac-os
+
+Do note that once the emulator is running, its process thread  will need to be stopped with a separate command.
+ The IDE will NOT do this task.
+
